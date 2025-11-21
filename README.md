@@ -14,5 +14,5 @@
   
 ## Test
 - Vengono effettuatti test di ognuna delle classi scritte
-## Problematiche effettuate
+## Problematiche affrontate
 
