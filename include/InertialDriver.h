@@ -35,6 +35,10 @@ class InertialDriver{
   private:
     MyVector<Measure> buffer_;
     static const int BUFFER_DIM = 10;
+
+    int head_ {};
+    int tail_ {};
+    int size_ {};
 };
 
 #endif 
