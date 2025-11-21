@@ -5,8 +5,8 @@
 - suddivisione del carico di lavoro
 
 ###Struttura:
-Classe Lettura con 6 parametri (yaw_v,yaw_a, pitch_v, pitch_a, roll_v, roll_a)
-Classe IntertialDriver
+- Classe Lettura con 6 parametri double (yaw_v,yaw_a, pitch_v, pitch_a, roll_v, roll_a) che incpsula la lettura di un sensore
+- Classe IntertialDriver che gestisce la lettura dai 17 sensori tramite un array circolare di dimensione stabilita BUFFER_DIM, implementato tramite la classe MyVector  
 ##Scrittura codice
   
 ##Test
