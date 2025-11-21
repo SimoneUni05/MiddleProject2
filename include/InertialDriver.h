@@ -20,15 +20,16 @@ class InertialDriver{
 
   public : 
 
+    //constructor
     InertialDriver();
-    // (Letture) = SensorData: std::array<double, 6>
-    // Measure : std::array<std::array<double, 6>, 17>
     
     void push_back(const Measure& measure);
     Measure pop_front();
     void clear_buffer();
+
+    //get the SensorData at i = index of the last Measure added
     SensorData get_reading(int index);
-    
+
     friend std::ostream& operator<<(std::ostream& os, const InertialDriver& v);
 
   private:
