@@ -12,7 +12,7 @@ struct SensorData {
     double roll_acceleration;
 };
 
-//for readibility
+//for readability
 using Measure = std::array<SensorData, 17>;
 
 
