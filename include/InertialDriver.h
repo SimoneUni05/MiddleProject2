@@ -1,6 +1,7 @@
 #ifndef INERTIALDRIVER_H
 #define INERTIALDRIVER_H
 
+#include "MyVector.h"
 
 class InertialDriver{
 
@@ -20,7 +21,6 @@ class InertialDriver{
   private:
     MyVector<Measure> buffer_;
     const int BUFFER_DIM = 10;
-}
+};
+
 #endif 
-
-
