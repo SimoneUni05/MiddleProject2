@@ -11,7 +11,10 @@ class InertialDriver{
     std::array[6] get_reading(int index);
     
     std::ostream& operator<<(std::ostream& os, const InertialDriver& v);
-    
+
+  private:
+    MyVector<Measure> buffer_;
+    const int BUFFER_DIM = 10;
 }
 #endif 
 
