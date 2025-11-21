@@ -5,10 +5,13 @@ class InertialDriver{
 
   public : 
   
-    void push_back(std::array[17]);
-    std::array[17] pop_front();
+    // Reading: std::array<double, 6>
+    // Measure : std::array<std::array<double, 6>, 17>
+    
+    void push_back(const std::array<std::array<double, 6>, 17>& measure);
+    std::array<std::array<double, 6>, 17> pop_front();
     void clear_buffer();
-    std::array[6] get_reading(int index);
+    std::array<double, 6> get_reading(int index);
     
     std::ostream& operator<<(std::ostream& os, const InertialDriver& v);
 
@@ -17,4 +20,5 @@ class InertialDriver{
     const int BUFFER_DIM = 10;
 }
 #endif 
+
 
