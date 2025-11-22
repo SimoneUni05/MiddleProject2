@@ -7,7 +7,6 @@
 
 ### Struttura:
 - Classe Misure costituita da un array con le letture di tutti i sensori, ogni lettura è organizza tramite la structure Lettura (array di lunghezza fissa uguale in numero ai 17 sensori)
-  2. public:
     * Lettura& operator\[](int index);
     * const Lettura& operator[](int index) const;
     * std::ostream& operator<<(std::ostream& os, const Misura& m);
