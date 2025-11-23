@@ -10,24 +10,14 @@ public:
 
     Lettura letture_[17]; // array C-style
 
-    Misura(){}
+    Misura() = default;
 
-    Lettura& operator[](int index) {
-        return letture_[index];
-    }
+    Lettura& operator[](int index);
 
-    const Lettura& operator[](int index) const {
-        return letture_[index];
-    }
-
+    const Lettura& operator[](int index) const;
     // overload of operator<<, only for output
     // ATTENTION : requires operator<< defined for Lettura
-    friend std::ostream& operator<<(std::ostream& os, const Misura& m) {
-        for (int i = 0; i < 17; ++i) {
-            os << "Sensore " << i << ": " << m.letture_[i] << "\n";
-        }
-        return os;
-    }
+    friend std::ostream& operator<<(std::ostream& os, const Misura& m);
 
 };
 
