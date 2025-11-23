@@ -1,7 +1,9 @@
 #include "../include/InertialDriver.h"
 //Implementazione costruttore
-InertialDriver::InertialDriver(): buffer_ {MyVector<Misura>()}, head_ {0}, tail_ {0}, size_{0} {};
-
+InertialDriver::InertialDriver()
+    : buffer_(BUFFER_DIM), head_(0), tail_(0), size_(0)
+{
+}
 // Implementazione dell'operator <<
 std::ostream& operator<<(std::ostream& os, const InertialDriver& v) 
 {
@@ -24,7 +26,7 @@ void InertialDriver::push_back(const Misura& measure)
 		if(size_ < BUFFER_DIM) // then i've got space
 		{
 			
-			tail_ = tail_ + 1 % BUFFER_DIM; //in this way if the increment is equal tail_ comes to 0
+			tail_ = (tail_ + 1) % BUFFER_DIM; //in this way if the increment is equal tail_ comes to 0
 			size_++;
 		}
 		else //no space -> circular array
@@ -44,18 +46,20 @@ void InertialDriver::push_back(const Misura& measure)
 
 Misura InertialDriver::pop_front()
 {
-	
-	if(size_==0)
-		return Misura{};
-		
-	Misura oldMeasure_= buffer_[head_];
-	head_++;
-	
-	
-	size_--;
-	
-	return oldMeasure_;
+    if (size_ == 0)
+        return Misura{};
+
+    Misura oldMeasure = buffer_[head_];
+
+    head_++;
+    if (head_ == BUFFER_DIM)
+        head_ = 0;
+
+    size_--;
+
+    return oldMeasure;
 }
+
 
 
 //to implement

@@ -33,7 +33,7 @@ int main() {
 
 
     std::cout << "Last measure saved in driver (should be measure 2):\n";
-    std::cout << driver << "\n";  // uses InertialDriver::operator<<
+    //std::cout << driver << "\n";  // uses InertialDriver::operator<<
 
 // POP FRONT
     std::cout << "=== TEST 2: pop_front oldest measure ===\n";
@@ -42,7 +42,7 @@ int main() {
     std::cout << oldest << "\n";
 
     std::cout << "Buffer now contains only measure 2:\n";
-    std::cout << driver << "\n";
+    //std::cout << driver << "\n";
 
     std::cout << "=== TEST 4: circular behaviour ===\n";
     // Push more than BUFFER_DIM times to force overwrite
@@ -52,7 +52,7 @@ int main() {
 
     
     std::cout << "RESULT \n";
-    std::cout << driver << "\n";
+    //std::cout << driver << "\n";
 
     return 0;
 }
