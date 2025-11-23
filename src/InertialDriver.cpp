@@ -1,9 +1,14 @@
 #include "../include/InertialDriver.h"
 //Implementazione costruttore
 InertialDriver::InertialDriver()
-    : buffer_(BUFFER_DIM), head_(0), tail_(0), size_(0)
+    : buffer_(), head_(0), tail_(0), size_(0)
 {
+    // riempiamo il MyVector con BUFFER_DIM Misura "vuote"
+    for (int i = 0; i < BUFFER_DIM; ++i) {
+        buffer_.push_back(Misura{});
+    }
 }
+
 // Implementazione dell'operator <<
 std::ostream& operator<<(std::ostream& os, const InertialDriver& v) 
 {
