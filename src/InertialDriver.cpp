@@ -1,12 +1,8 @@
 #include "../include/InertialDriver.h"
 //Implementazione costruttore
 InertialDriver::InertialDriver()
-    : buffer_(), head_(0), tail_(0), size_(0)
+    : buffer_{BUFFER_DIM}, head_(0), tail_(0), size_(0)
 {
-    // riempiamo il MyVector con BUFFER_DIM Misura "vuote"
-    for (int i = 0; i < BUFFER_DIM; ++i) {
-        buffer_.push_back(Misura{});
-    }
 }
 
 // Implementazione dell'operator <<
@@ -51,14 +47,12 @@ void InertialDriver::push_back(const Misura& measure)
 
 Misura InertialDriver::pop_front()
 {
-    if (size_ == 0)
+    if (InertialDriver::isEmpty())
         return Misura{};
 
     Misura oldMeasure = buffer_[head_];
 
-    head_++;
-    if (head_ == BUFFER_DIM)
-        head_ = 0;
+    head_ = (head_ + 1) % BUFFER_DIM;
 
     size_--;
 
@@ -67,12 +61,31 @@ Misura InertialDriver::pop_front()
 
 
 
-//to implement
+//get the SensorData at i = index of the last Measure added
 Lettura InertialDriver::get_reading(int index)
 {
+    if (InertialDriver::isEmpty() || index < 0 || index > 16)
+        return Lettura{};
     
+    int lastMeasureIndex = (tail_ + BUFFER_DIM - 1) % BUFFER_DIM;
 
-    return Lettura{};
+    Misura lastMeasure = buffer_[lastMeasureIndex];
+    return lastMeasure[index]; //operator [] for Measure is defined 
+}
+
+
+bool InertialDriver::isEmpty() {return size_ == 0;}
+
+
+void InertialDriver::clear_buffer(){
+    size_ = 0;
+    head_ = 0;
+    tail_ = 0;
+    
+    //For additional safety we could also clear the old saved value.
+    //for (int i = 0; i < BUFFER_DIM; ++i) {
+    //    buffer_[i] = Misura{}; 
+    //}
 }
 
 

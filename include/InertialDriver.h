@@ -23,6 +23,8 @@ class InertialDriver{
     Lettura get_reading(int index);
 
     friend std::ostream& operator<<(std::ostream& os, const InertialDriver& v);
+    
+    bool isEmpty();
 
   private:
     MyVector<Misura> buffer_;

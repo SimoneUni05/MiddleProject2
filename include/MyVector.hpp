@@ -5,6 +5,7 @@
 
 template<typename T>
 MyVector<T>::MyVector(int s){
+  sz_ = s;
   capacity_ = s;
   if (s <= 0) elem_ = nullptr;
   else elem_ = new T[capacity_];
