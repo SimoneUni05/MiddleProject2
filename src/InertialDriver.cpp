@@ -8,8 +8,8 @@ InertialDriver::InertialDriver()
 // Implementazione dell'operator <<
 std::ostream& operator<<(std::ostream& os, const InertialDriver& v) 
 {
-    for (int i = v.head_; i > v.tail_; i--) { 
-        os << v.head_ - i + 1 << " measure: " << v.buffer_[i] << '\n';
+    for (int i = 0; i <  BUFFER_DIM_; i++) { 
+        os << i + 1 << " measure: " << v.buffer_[(head_+i) % BUFFER_DIM_] << '\n';
     }
 
     os << '\n';
@@ -87,6 +87,7 @@ void InertialDriver::clear_buffer(){
     //    buffer_[i] = Misura{}; 
     //}
 }
+
 
 
 
