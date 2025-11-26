@@ -1,4 +1,11 @@
 # MiddleProject
+## Divisione Lavoro
+- push_back: Simone Piccinini
+- pop_front: Simone Piccinini
+- operator<<: Manuel Carelli
+- testing: Manuel Carelli
+- clear_buffer: Emanuel Huber
+- get_reading: Emanuel Huber
 
 ## Progettazione
 - creazione cartella del progetto "InertialDriver" con suddivisione in sotto cartelle di file .h e file .cpp
