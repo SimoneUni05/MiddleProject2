@@ -1,4 +1,5 @@
 #include "../include/InertialDriver.h"
+#include <stdexcept>
 //Implementazione costruttore
 InertialDriver::InertialDriver()
     : buffer_{BUFFER_DIM}, head_(0), tail_(0), size_(0)
@@ -8,8 +9,8 @@ InertialDriver::InertialDriver()
 // Implementazione dell'operator <<
 std::ostream& operator<<(std::ostream& os, const InertialDriver& v) 
 {
-    for (int i = 0; i <  size_; i++) { 
-        os << i + 1 << " measure: " << v.buffer_[(head_+i) % BUFFER_DIM_] << '\n';
+    for (int i = 0; i <  v.size_; i++) { 
+        os << i + 1 << " measure: " << v.buffer_[(v.head_+i) % v.BUFFER_DIM] << '\n';
     }
 
     os << '\n';
@@ -48,7 +49,7 @@ void InertialDriver::push_back(const Misura& measure)
 Misura InertialDriver::pop_front()
 {
     if (InertialDriver::isEmpty())
-        return Misura{};
+        throw std::runtime_error("buffer is empty");
 
     Misura oldMeasure = buffer_[head_];
 
@@ -64,8 +65,10 @@ Misura InertialDriver::pop_front()
 //get the SensorData at i = index of the last Measure added
 Lettura InertialDriver::get_reading(int index)
 {
-    if (InertialDriver::isEmpty() || index < 0 || index > 16)
-        return Lettura{};
+    if (index < 0 || index > 16)
+        throw std::invalid_argument("index out of bound: must be between 0 and 16");
+    if (InertialDriver::isEmpty())
+        throw std::runtime_error("buffer is empty");
     
     int lastMeasureIndex = (tail_ + BUFFER_DIM - 1) % BUFFER_DIM;
 
@@ -87,10 +90,3 @@ void InertialDriver::clear_buffer(){
     //    buffer_[i] = Misura{}; 
     //}
 }
-
-
-
-
-
-
-
