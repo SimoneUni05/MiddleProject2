@@ -22,7 +22,7 @@
 - Classe IntertialDriver che gestisce la lettura dai 17 sensori tramite un array circolare di dimensione stabilita BUFFER_DIM, implementato tramite la classe MyVector di Misure:
   1. private:
      * const int BUFFER_DIM_
-     * MyVector<Misure>
+     * MyVector\<Misure> buffer
   2. public:
      * IntertialDriver();
      * void push_back(array<Misure> array); (controllo della lunghezza = 17)
