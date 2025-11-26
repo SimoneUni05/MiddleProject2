@@ -25,7 +25,7 @@
      * MyVector\<Misure> buffer
   2. public:
      * IntertialDriver();
-     * void push_back(array<Misure> array); (controllo della lunghezza = 17)
+     * void push_back(array<Misure> array);
      * Measure pop_front();
      * void clear_buffer();
      * Misura get_reading(int index); (controllo dell'indice da 0 a 16)
