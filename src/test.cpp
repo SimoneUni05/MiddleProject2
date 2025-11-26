@@ -62,6 +62,27 @@ int main() {
     driver.clear_buffer();
     std::cout << "Is the driver empty?: "; //should be TRUE as it has been just cleared
     if (driver.isEmpty()) std::cout << "TRUE"; else std::cout << "FALSE";
+    
+    std::cout << "\n\n=== TEST 6: exception throwing ===\n";
+    std::cout << "testing pop_front on empty buffer\n";
+    try{
+        driver.pop_front();
+    }catch(std::runtime_error e){
+        std::cout << e.what();
+    };
+    std::cout << "\ntesting get_reading on empty buffer\n";
+    try{
+        driver.get_reading(2);
+    }catch(std::runtime_error e){
+        std::cout << e.what();
+    };
+    driver.push_back(m1);
+    std::cout << "\ntesting get_reading with a sensor number out of bound\n";
+    try{
+        driver.get_reading(14521);
+    }catch(std::invalid_argument e){
+        std::cout << e.what();
+    };
     std::cout << "\nTEST COMPLETED \n";
     //std::cout << driver << "\n";
 
