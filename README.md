@@ -26,5 +26,7 @@
      
 - Classe test.cpp che simula la lettura di 17 sensori e che utilizza InertialDriver per organizzarli e leggerli
   
-## Test
-- Vengono effettuatti test di ognuna delle classi scritte traimite test.cpp
+## Schema Logico
+<img width="1948" height="1641" alt="Blank diagram - Page 1" src="https://github.com/user-attachments/assets/e2f1d10b-09b0-4aba-9450-1cdbdad3b705" />
+
+
