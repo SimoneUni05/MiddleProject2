@@ -20,6 +20,7 @@ Misura make_measure(int id) {
 }
 
 int main() {
+	
     InertialDriver driver;
 
     std::cout << "=== TEST 1: push_back and operator<< ===\n";
@@ -27,25 +28,26 @@ int main() {
     Misura m1 = make_measure(1);
     Misura m2 = make_measure(2);
 
-// PUSH BACK
+	// PUSH BACK
     driver.push_back(m1);
     driver.push_back(m2);
 
 
     std::cout << "Last measure saved in driver (should be measure 2):\n";
-    //std::cout << driver << "\n";  // uses InertialDriver::operator<<
+    std::cout << driver << "\n";  // uses InertialDriver::operator<<
 
     std::cout << "\n=== TEST 2: get_reading of oldest measure' last sensor ===\n";
     Lettura l = driver.get_reading(16); // should be 216-ish
     std::cout << l << '\n';
-// POP FRONT
+	// POP FRONT
+	
     std::cout << "\n=== TEST 3: pop_front oldest measure ===\n";
     Misura oldest = driver.pop_front();
     std::cout << "Oldest measure removed (should be measure 1):\n";
     std::cout << oldest << "\n";
 
     std::cout << "Buffer now contains only measure 2:\n";
-    //std::cout << driver << "\n";
+    std::cout << driver << "\n";
 
     std::cout << "\n=== TEST 4: circular behaviour ===\n";
     // Push more than BUFFER_DIM times to force overwrite
@@ -84,7 +86,6 @@ int main() {
         std::cout << e.what();
     };
     std::cout << "\nTEST COMPLETED \n";
-    //std::cout << driver << "\n";
 
     return 0;
 }
