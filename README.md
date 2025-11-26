@@ -24,9 +24,7 @@
      * Misura get_reading(int index); (controllo dell'indice da 0 a 16)
      * std::ostream& operator<<(std::ostream& os, const InertialDriver& v);
      
-- Classe main che simula la lettura di 17 sensori e che utilizza InertialDriver per organizzarli e leggerli
-## Scrittura codice
+- Classe test.cpp che simula la lettura di 17 sensori e che utilizza InertialDriver per organizzarli e leggerli
   
 ## Test
-- Vengono effettuatti test di ognuna delle classi scritte
-## Problematiche affrontate
+- Vengono effettuatti test di ognuna delle classi scritte traimite test.cpp
