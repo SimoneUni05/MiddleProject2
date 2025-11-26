@@ -4,7 +4,7 @@
 #include "../include/InertialDriver.h"
 #include "../include/MyVector.h"
 
-// this is to create Measure for testing
+// this is to create Measure for testing, also it tests every function in Misura.cpp, operator<< is used in IntertialDriver.cpp
 Misura make_measure(int id) {
     Misura m;
     for (int i = 0; i < 17; ++i) {
@@ -35,8 +35,11 @@ int main() {
     std::cout << "Last measure saved in driver (should be measure 2):\n";
     //std::cout << driver << "\n";  // uses InertialDriver::operator<<
 
+    std::cout << "\n=== TEST 2: get_reading of oldest measure' last sensor ===\n";
+    Lettura l = driver.get_reading(16); // should be 216-ish
+    std::cout << l << '\n';
 // POP FRONT
-    std::cout << "=== TEST 2: pop_front oldest measure ===\n";
+    std::cout << "\n=== TEST 3: pop_front oldest measure ===\n";
     Misura oldest = driver.pop_front();
     std::cout << "Oldest measure removed (should be measure 1):\n";
     std::cout << oldest << "\n";
@@ -44,14 +47,22 @@ int main() {
     std::cout << "Buffer now contains only measure 2:\n";
     //std::cout << driver << "\n";
 
-    std::cout << "=== TEST 4: circular behaviour ===\n";
+    std::cout << "\n=== TEST 4: circular behaviour ===\n";
     // Push more than BUFFER_DIM times to force overwrite
     for (int id = 3; id < 3 + 12; ++id) {
         driver.push_back(make_measure(id));
     }
+    //std::cout << driver << "\n"; // it should containt measure created by id from 5 to 14
 
-    
-    std::cout << "RESULT \n";
+
+    std::cout << "\n=== TEST 5: isEmpty and clear buffer ===\n";
+    std::cout << "Is the driver empty?: "; //should be FALSE because it's been filled
+    if (driver.isEmpty()) std::cout << "TRUE"; else std::cout << "FALSE";
+    std::cout << "\nclearing buffer...\n";
+    driver.clear_buffer();
+    std::cout << "Is the driver empty?: "; //should be TRUE as it has been just cleared
+    if (driver.isEmpty()) std::cout << "TRUE"; else std::cout << "FALSE";
+    std::cout << "\nTEST COMPLETED \n";
     //std::cout << driver << "\n";
 
     return 0;
