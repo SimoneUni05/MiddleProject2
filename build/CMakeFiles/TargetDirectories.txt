@@ -1,0 +1,8 @@
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/libInertialDriver.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/main.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/edit_cache.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/rebuild_cache.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/list_install_components.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/install.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/install/local.dir
+/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build/CMakeFiles/install/strip.dir

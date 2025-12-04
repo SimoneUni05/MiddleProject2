@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/src/test.cpp.o CMakeFiles/main.dir/src/Misura.cpp.o -o main  -Wl,-rpath,/home/roaming/piccsim51647/Desktop/project/MiddleProject2/build liblibInertialDriver.so 
